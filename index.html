@@ -2,22 +2,14 @@
 <html lang="en">
 <head>
     <meta charet="UTF-8">
-    <title>Title</title>
+    <title>Memory</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <h1>Memory game</h1>
 
 <button class="button" onclick="controller.startGame()">START GAME</button>
-<br>
-<button class="button" >HIGHLIGHT</button>
-<br>
-<form action="">
-    Change time of highlight:<br>
-    <input type="text" name="Change time">
-    <br>
-    <input type="submit" value="Submit">
-</form>
+<button class="button" onclick="controller.highlight()">HIGHLIGHT</button>
 
 <div id="pieces"></div>
 <script src="js/game.js"></script>

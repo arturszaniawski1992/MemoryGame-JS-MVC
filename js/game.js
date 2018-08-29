@@ -24,9 +24,12 @@ var game = function () {
         },
 
         getRandomPieces = function () {
-            var rand = pieces[Math.floor(Math.random() * (initialNumberOfPieces - (3 + currentLevel)))];
-            return rand;
-
+            var i;
+            for (i = 0; i < currentNumberOfPieces; i++) {
+                var randomPiece = Math.floor(Math.random() * numberOfPieces);
+                viewPieces[i] = viewPieces[randomPiece];
+                viewPieces[randomPiece] = viewPieces[i];
+            }
         };
 
 
