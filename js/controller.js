@@ -9,8 +9,22 @@ var controller = function () {
         view.renderPieces(game.getPieces());
 
     };
+    var highlight = function () {
+        view.highlightPieces(game.getPieces());
+    };
+    var clickButton = function (id) {
+        alert("message!");
+       view.clickButton(id);
+
+    };
+    var addPiece = function () {
+        view.addPiece();
+    };
 
     return {
-        'startGame': startGame
+        'startGame': startGame,
+        'highlight': highlight,
+        'clickButton': clickButton,
+        'addPiece': addPiece
     }
 }();

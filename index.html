@@ -6,11 +6,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Memory game</h1>
+<div class="header">
+    <h1>Memory game</h1>
+</div>
 
-<button class="button" onclick="controller.startGame()">START GAME</button>
-<button class="button" onclick="controller.highlight()">HIGHLIGHT</button>
 
+<div class="menu">
+    <button class="button" onclick="controller.startGame()">START GAME</button>
+    <button class="button" onclick="controller.highlight()">HIGHLIGHT</button>
+    <input id="highlightTime" type="number" value="1" placeholder="HIGHLIGHT TIME min=" 1" />
+    <button onclick="controller.addPiece()">Add piece</button>
+</div>
 <div id="pieces"></div>
 <script src="js/game.js"></script>
 <script src="js/view.js"></script>

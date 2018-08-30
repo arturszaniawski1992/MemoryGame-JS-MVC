@@ -1,7 +1,28 @@
-.piece {
-    width: 100px;
-    height: 100px;
-    background-color: #000000;
+
+.header {
+    background-color: grey;
+    color: white;
+    padding: 15px;
+}
+
+#pieces {
+    float: right;
+    width: 80%;
+    height: 100%;
+    background-color: white;
+    padding-bottom: 2px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    margin-right: 50px;
+    display: inline-block;
+
+}
+
+#menu {
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: yellowgreen;
     padding-bottom: 2px;
     vertical-align: middle;
     margin-bottom: 5px;
@@ -10,9 +31,20 @@
 
 }
 
+.piece {
+    width: 100px;
+    height: 100px;
+    background-color: #000000;
+    padding-bottom: 2px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
 .piece:hover {
     background-color: slategrey;
-
 
 }
 
