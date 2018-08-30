@@ -1,8 +1,6 @@
 var view = function () {
     var numberOfPieces = 4;
-    var iClick = 0;
-    var isInGame = false;
-    var obj = document.querySelector("div");
+
 
     var getInitialNumberOfPieces = function () {
         return numberOfPieces;
@@ -24,29 +22,58 @@ var view = function () {
             viewPieces.push(i);
         }
     };
-    var addPiece = function () {
-        return numberOfPieces++;
-    };
+    var setHighlightTime = function () {
+        return document.getElementById("highlightTime").value;
+    }
+
+    var setPiecesToGuess = function () {
+        return document.getElementById("piecesToGuess").value;
+    }
+
 
     var highlightPieces = function (pieces) {
-        var i;
+
+        var i,
+            piece;
         for (i = 0; i < pieces.length; i++) {
             if (pieces[i].toGuess === true) {
-                document.getElementById(i).style.backgroundColor = "blue";
+                piece = document.getElementById(i);
+                document.getElementById(i).classList.add('highlight');
             }
         }
+        setBlackPieces(pieces);
     };
-    var clickButton = function (obj) {
 
-        if (!isInGame) return;
-        var currentId = viewPieces[iClick];
-        var id = obj.dataset.id;
-        if (currentId == id) {
+    var setBlackPieces = function (pieces) {
+        setTimeout(function () {
+            var i;
+
+            for (i = 0; i < pieces.length; i++) {
+                if (pieces[i].toGuess === true) {
+                    document.getElementById(i).classList.remove('highlight');
+                }
+            }
+        }, 1000 * setHighlightTime());
+
+    };
+
+    var clickButton = function (id, pieces) {
+        var selectedPiece = document.getElementById('id');
+        selectedPiece = document.getElementById(id.toString());
+        if (pieces[id].toGuess) {
+            setTimeout(function () {
+                selectedPiece.classList.add('correctAnswer');
+            }, 1500)
+        } else {
+            setTimeout(function () {
+                selectedPiece.classList.add('wrongAnswer');
+            }, 1500)
 
         }
-        else {
-            alert("Game over!");
-        }
+    };
+
+    var addPiece = function () {
+        return numberOfPieces++;
     };
     return {
         'getInitialNumberOfPieces': getInitialNumberOfPieces,
@@ -54,6 +81,9 @@ var view = function () {
         'highlightPieces': highlightPieces,
         'clickButton': clickButton,
         'addPiece': addPiece,
+        'setHighlightTime': setHighlightTime,
+        'setPiecesToGuess': setPiecesToGuess
+
 
     }
 }

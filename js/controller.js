@@ -13,13 +13,14 @@ var controller = function () {
         view.highlightPieces(game.getPieces());
     };
     var clickButton = function (id) {
-        alert("message!");
        view.clickButton(id);
 
     };
     var addPiece = function () {
         view.addPiece();
     };
+
+
 
     return {
         'startGame': startGame,

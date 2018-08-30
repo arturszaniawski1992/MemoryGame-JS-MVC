@@ -2,7 +2,9 @@ var game = function () {
 
     var initialNumberOfPieces = 4,
         currentNumberOfPieces,
-        currentLevel = 0,
+        pieces = [],
+        guessedPieces = 0,
+
 
         startGame = function (config) {
             if (config && config.numberOfPieces) {
@@ -22,9 +24,9 @@ var game = function () {
             piecesToGuess = calculatePiecesToGet(pieces.length);
 
             for (i = 0; i < piecesToGuess; i++) {
-                var randomNumber = randomizePiecesToGuess(pieces.length);
+                var randomNumber = randomPieces(pieces.length);
                 while (pieces[randomNumber].toGuess === true) {
-                    randomNumber = randomizePiecesToGuess(pieces.length);
+                    randomNumber = randomPieces(pieces.length);
                 }
                 pieces[randomNumber].toGuess = true;
             }
@@ -35,23 +37,15 @@ var game = function () {
             return Math.floor(piecesToGuess / 2 - 1);
         },
 
-        randomizePiecesToGuess = function (length) {
+        randomPieces = function (length) {
             return Math.floor(Math.random() * length);
-        },
-
-        getRandomPieces = function () {
-            var i;
-            for (i = 0; i < currentNumberOfPieces; i++) {
-                var randomPiece = Math.floor(Math.random() * numberOfPieces);
-                viewPieces[i] = viewPieces[randomPiece];
-                viewPieces[randomPiece] = viewPieces[i];
-            }
         };
 
 
     return {
         'startGame': startGame,
         'getPieces': getPieces,
-        'getRandomPieces': getRandomPieces
+
+
     }
 }();
