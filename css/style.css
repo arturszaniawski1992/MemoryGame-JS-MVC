@@ -6,15 +6,14 @@
 }
 
 #pieces {
-    float: right;
-    width: 80%;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: darkgrey;
+    width: 425px;
     height: 100%;
-    background-color: white;
-    padding-bottom: 2px;
-    vertical-align: middle;
-    margin-bottom: 5px;
-    margin-right: 50px;
-    display: inline-block;
+    float: left;
 
 }
 
@@ -52,11 +51,12 @@
     background-color: blue;
 
 }
-.wrongAnswer {
+.wrongPiece {
     background-color: red;
 
 }
-.correctAnswer {
+.correctPiece {
     background-color: green;
 
 }
+

@@ -5,6 +5,7 @@ var view = function () {
     var getInitialNumberOfPieces = function () {
         return numberOfPieces;
     };
+
     var renderPieces = function (pieces) {
         var i;
         viewPieces = [];
@@ -56,20 +57,12 @@ var view = function () {
         }, 1000 * setHighlightTime());
 
     };
+    var setGreenPiece = function (id) {
+        document.getElementById(id).classList.add('correctPiece');
+    };
 
-    var clickButton = function (id, pieces) {
-        var selectedPiece = document.getElementById('id');
-        selectedPiece = document.getElementById(id.toString());
-        if (pieces[id].toGuess) {
-            setTimeout(function () {
-                selectedPiece.classList.add('correctAnswer');
-            }, 1500)
-        } else {
-            setTimeout(function () {
-                selectedPiece.classList.add('wrongAnswer');
-            }, 1500)
-
-        }
+    var setRedPiece = function (id) {
+        document.getElementById(id).classList.add('wrongPiece');
     };
 
     var addPiece = function () {
@@ -79,10 +72,12 @@ var view = function () {
         'getInitialNumberOfPieces': getInitialNumberOfPieces,
         'renderPieces': renderPieces,
         'highlightPieces': highlightPieces,
-        'clickButton': clickButton,
         'addPiece': addPiece,
         'setHighlightTime': setHighlightTime,
-        'setPiecesToGuess': setPiecesToGuess
+        'setPiecesToGuess': setPiecesToGuess,
+        'setGreenPiece': setGreenPiece,
+        'setRedPiece': setRedPiece,
+        'addPiece': addPiece
 
 
     }

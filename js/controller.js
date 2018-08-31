@@ -1,4 +1,5 @@
 var controller = function () {
+
     var startGame = function () {
         var initialNumberOfPieces = view.getInitialNumberOfPieces();
 
@@ -9,17 +10,24 @@ var controller = function () {
         view.renderPieces(game.getPieces());
 
     };
+
+
     var highlight = function () {
         view.highlightPieces(game.getPieces());
     };
-    var clickButton = function (id) {
-       view.clickButton(id);
 
+    var clickButton = function (id) {
+        var pieceGuessed = game.checkPieceIsGuessed(id);
+        if (pieceGuessed) {
+            view.setGreenPiece(id);
+        } else {
+            view.setRedPiece(id);
+        }
     };
+
     var addPiece = function () {
         view.addPiece();
     };
-
 
 
     return {
