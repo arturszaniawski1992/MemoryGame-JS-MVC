@@ -15,19 +15,19 @@ var view = (function () {
         },
 
         renderPieces = function (pieces) {
+            resetPieces();
             var i;
-            var div = document.getElementById('pieces');
-            div.innerHTML = '';
-
             for (i = 0; i < pieces.length; i++) {
                 var piece = document.createElement("div");
+                piece.setAttribute('id', i);
                 piece.classList.add('piece');
-                piece.setAttribute("id", i);
-                piece.setAttribute("data-id", i);
-                piece.innerHTML = i;
-                piece.setAttribute("onclick", "controller.clickButton(" + i + ")");
-                div.appendChild(piece);
-                viewPieces.push(i);
+                document.getElementById('pieces').appendChild(piece);
+            }
+        },
+        resetPieces = function () {
+            var pieces = document.getElementsByClassName('piece');
+            while (pieces.length > 0) {
+                pieces[0].parentNode.removeChild(pieces[0]);
             }
         },
         setHighlightTime = function () {
@@ -83,7 +83,6 @@ var view = (function () {
         'setRedPiece': setRedPiece,
         'getNumberOfPieces': getNumberOfPieces,
         'getNumberOfPiecesToGuess': getNumberOfPiecesToGuess
-
 
 
     }
