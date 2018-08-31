@@ -1,62 +1,41 @@
+.piece {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
 
-.header {
-    background-color: grey;
-    color: white;
-    padding: 15px;
+.button {
+
+}
+.highlight {
+    background-color: blue;
+}
+
+.wrongPiece {
+    background-color: red;
+}
+
+.correctPiece {
+    background-color: green;
+}
+
+.disabled {
+    pointer-events: none;
 }
 
 #pieces {
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    background-color: darkgrey;
-    width: 425px;
-    height: 100%;
-    float: left;
+    width: 65%;
+    float: right;
 
 }
 
 #menu {
+    width: 35%;
     float: left;
-    width: 20%;
-    height: 100%;
-    background-color: yellowgreen;
-    padding-bottom: 2px;
-    vertical-align: middle;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    display: inline-block;
-
+    background-color: lightgreen;
+    font: full-width;
 }
-
-.piece {
-    width: 100px;
-    height: 100px;
-    background-color: #000000;
-    padding-bottom: 2px;
-    vertical-align: middle;
-    margin-bottom: 5px;
-    border-radius: 20px;
-    margin-right: 5px;
-    display: inline-block;
-}
-
-.piece:hover {
-    background-color: slategrey;
-
-}
-
-.highlight {
-    background-color: blue;
-
-}
-.wrongPiece {
-    background-color: red;
-
-}
-.correctPiece {
-    background-color: green;
-
-}
-

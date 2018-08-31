@@ -9,15 +9,6 @@ describe('Game', function () {
         expect(pieces.length).toBe(4);
     });
 
-    it('one pieces should be to guess after game start', function () {
-        var piecesToGuess;
-        game.startGame();
-
-        piecesToGuess = findPiecesToGuess(game.getPieces());
-
-        expect(piecesToGuess.length).toBe(1);
-    });
-
     it('should start game with configured number of pieces', function () {
         var pieces,
             config = {
@@ -28,6 +19,43 @@ describe('Game', function () {
         pieces = game.getPieces();
 
         expect(pieces.length).toBe(6);
+    });
+
+    it('should start the game and return actual number of pieces', function () {
+        //arrange
+        var pieces,
+            config = {numberOfPieces: 10};
+        //act
+        game.startGame(config);
+        game.getPieces();
+        pieces = game.getCurrentPieces();
+        //assert
+        expect(pieces.length).toBe(10);
+    });
+
+    it('should get current number of pieces on board', function () {
+        //arrange
+        var numberOfPieces,
+            config = {numberOfPieces: 10};
+        //act
+        game.startGame(config);
+        game.getPieces();
+        numberOfPieces = game.getCurrentNumberOfPieces();
+        //assert
+        expect(numberOfPieces).toBe(10);
+    });
+
+    it('should calculate pieces to guess for pieces on board', function () {
+        //arrange
+        var numberOfPieces,
+            config = {numberOfPieces: 10};
+        //act
+        game.startGame(config);
+        game.getPieces();
+        pieces = game.getCurrentPieces();
+        piecesToGuess = game.getNumberOfPiecesToGuess(pieces.length);
+        //assert
+        expect(piecesToGuess).toBe(4);
     });
 
 
