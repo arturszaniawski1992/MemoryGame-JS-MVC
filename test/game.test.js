@@ -138,6 +138,7 @@ describe('Game', function () {
         //arrange
         var pieces,
             index,
+            clickedPiece,
             config = {
                 numberOfPieces: 6,
             };
@@ -149,8 +150,9 @@ describe('Game', function () {
                 return index = i;
             }
         }
+        clickedPiece=game.checkClickedPiece(index);
         //assert
-        expect(game.checkClickedPiece(index)).toBe(false);
+        expect(clickedPiece).toBe(false);
     });
 
     function findPiecesToGuess(pieces) {

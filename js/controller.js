@@ -40,7 +40,6 @@ var controller = (function () {
         addLevel = function () {
             view.getCurrentLevel(game.getCurrentLevel() + 1);
         },
-
         addPiece = function () {
             view.getNumberOfPieces(game.getCurrentNumberOfPieces() + 1);
             startGame();
@@ -58,6 +57,5 @@ var controller = (function () {
         'addPiece': addPiece,
         'startAgain': startAgain,
         'addLevel': addLevel
-
     }
 })();

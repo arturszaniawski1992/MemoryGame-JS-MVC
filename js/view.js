@@ -24,16 +24,18 @@ var view = (function () {
                 piece.setAttribute('id', i);
                 piece.classList.add('piece');
                 document.getElementById('pieces').appendChild(piece);
-                piece.addEventListener("click",clickCallBack);
+                piece.addEventListener("click", clickCallBack);
 
             }
         },
         resetPieces = function () {
+
             var pieces = document.getElementsByClassName('piece');
             while (pieces.length > 0) {
                 pieces[0].parentNode.removeChild(pieces[0]);
             }
         },
+
         timeOfHighLight = function () {
             return document.getElementById("highlightTime").value;
         },
@@ -61,7 +63,6 @@ var view = (function () {
                 }
                 unlockPieces();
             }, 1000 * timeOfHighLight());
-            setClickOnPiece();
         },
 
         unlockPieces = function () {
@@ -104,4 +105,5 @@ var view = (function () {
 
 
     }
-})();
+})
+();
