@@ -7,7 +7,7 @@ var game = (function () {
         piecesToGuess = 1,
         guessedPieces = 0,
         currentPieces = [],
-
+        currentLevel=1,
 
         startGame = function (config) {
             if (config && config.numberOfPieces) {
@@ -16,6 +16,8 @@ var game = (function () {
                 currentNumberOfPieces = initialNumberOfPieces;
             }
             guessedPieces = 0;
+            currentLevel = (currentNumberOfPieces - 3) ;
+
         },
         getPieces = function () {
             var i,
@@ -27,6 +29,7 @@ var game = (function () {
             currentPieces = pieces;
             return pieces;
         },
+
         getCurrentPieces = function () {
             return currentPieces;
         },
@@ -41,7 +44,6 @@ var game = (function () {
                 }
                 pieces[randomNumber].toGuess = true;
             }
-
             return pieces;
         },
 
@@ -66,11 +68,18 @@ var game = (function () {
             return currentNumberOfPieces;
         },
 
-        checkIfAllPiecesGuessed = function () {
+        checkIfAllPiecesAreGuessed = function () {
             return guessedPieces === getNumberOfPiecesToGuess(currentNumberOfPieces);
         },
         checkIfGameCanBeContinued = function () {
             return true;
+        },
+        getCurrentLevel = function () {
+            return currentLevel;
+        },
+
+        resetLevel = function () {
+            currentLevel = 1;
         };
 
 
@@ -80,10 +89,10 @@ var game = (function () {
         'getNumberOfPiecesToGuess': getNumberOfPiecesToGuess,
         'getCurrentPieces': getCurrentPieces,
         'checkClickedPiece': checkClickedPiece,
-        'checkIfAllPiecesGuessed': checkIfAllPiecesGuessed,
+        'checkIfAllPiecesGuessed': checkIfAllPiecesAreGuessed,
         'getCurrentNumberOfPieces': getCurrentNumberOfPieces,
-        'checkIfGameCanBeContinued': checkIfGameCanBeContinued
-
-
+        'checkIfGameCanBeContinued': checkIfGameCanBeContinued,
+        'getCurrentLevel': getCurrentLevel,
+        'resetLevel': resetLevel,
     }
 })();
