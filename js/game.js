@@ -90,6 +90,6 @@ var game = (function () {
         'checkIfAllPiecesGuessed': checkIfAllPiecesAreGuessed,
         'getCurrentNumberOfPieces': getCurrentNumberOfPieces,
         'getCurrentLevel': getCurrentLevel,
-        'resetLevel': resetLevel,
+        'resetLevel': resetLevel
     }
 })();

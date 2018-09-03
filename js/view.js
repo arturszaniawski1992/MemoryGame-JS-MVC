@@ -103,7 +103,5 @@ var view = (function () {
         'getCurrentLevel': getCurrentLevel,
         'displayMessage': displayMessage
 
-
     }
-})
-();
+})();
