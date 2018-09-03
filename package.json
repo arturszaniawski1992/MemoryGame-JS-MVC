@@ -21,5 +21,7 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "karma-coverage": "^1.1.2"
+  }
 }

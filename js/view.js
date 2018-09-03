@@ -16,7 +16,7 @@ var view = (function () {
             document.getElementById('level').textContent = number.toString();
         },
 
-        renderPieces = function (pieces) {
+        renderPieces = function (pieces, clickCallBack) {
             resetPieces();
             var i;
             for (i = 0; i < pieces.length; i++) {
@@ -24,6 +24,8 @@ var view = (function () {
                 piece.setAttribute('id', i);
                 piece.classList.add('piece');
                 document.getElementById('pieces').appendChild(piece);
+                piece.addEventListener("click",clickCallBack);
+
             }
         },
         resetPieces = function () {
@@ -69,15 +71,6 @@ var view = (function () {
         lockPieces = function () {
             document.getElementById('pieces').classList.add('disabled');
             document.getElementById('menu').classList.add('disabled');
-        },
-
-        setClickOnPiece = function (clickCallBack) {
-            var i,
-                pieces = document.getElementById('pieces').children;
-            for (i = 0; i < pieces.length; i++) {
-                var piece = document.getElementById(i);
-                piece.addEventListener("click", controller.clickOnPiece);
-            }
         },
 
         clickOnPiece = function (i, shoot) {

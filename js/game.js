@@ -7,7 +7,7 @@ var game = (function () {
         piecesToGuess = 1,
         guessedPieces = 0,
         currentPieces = [],
-        currentLevel=1,
+        currentLevel = 1,
 
         startGame = function (config) {
             if (config && config.numberOfPieces) {
@@ -16,7 +16,7 @@ var game = (function () {
                 currentNumberOfPieces = initialNumberOfPieces;
             }
             guessedPieces = 0;
-            currentLevel = (currentNumberOfPieces - 3) ;
+            currentLevel = (currentNumberOfPieces - 3);
 
         },
         getPieces = function () {
@@ -71,9 +71,7 @@ var game = (function () {
         checkIfAllPiecesAreGuessed = function () {
             return guessedPieces === getNumberOfPiecesToGuess(currentNumberOfPieces);
         },
-        checkIfGameCanBeContinued = function () {
-            return true;
-        },
+
         getCurrentLevel = function () {
             return currentLevel;
         },
@@ -91,7 +89,6 @@ var game = (function () {
         'checkClickedPiece': checkClickedPiece,
         'checkIfAllPiecesGuessed': checkIfAllPiecesAreGuessed,
         'getCurrentNumberOfPieces': getCurrentNumberOfPieces,
-        'checkIfGameCanBeContinued': checkIfGameCanBeContinued,
         'getCurrentLevel': getCurrentLevel,
         'resetLevel': resetLevel,
     }

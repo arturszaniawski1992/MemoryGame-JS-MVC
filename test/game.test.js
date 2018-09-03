@@ -44,7 +44,7 @@ describe('Game', function () {
     });
 
 
-    it('should calculate pieces to guess for pieces on board if 100 return 49', function () {
+    it('should calculate pieces to guess for pieces on board if 10 return 4', function () {
         //arrange
         config = {numberOfPieces: 10};
         //act
@@ -88,7 +88,7 @@ describe('Game', function () {
         //arrange
         var guessedPiece,
             config = {
-                numberOfPieces: 4
+                numberOfPieces: 8
             };
         //act
         game.startGame(config);
@@ -116,6 +116,42 @@ describe('Game', function () {
         expect(currentLevel).toBe(3);
     });
 
+    it('should reset current level', function () {
+        //arrange
+        var currentLevelBefore,
+            currentLevelAfter,
+            config = {
+                numberOfPieces: 10,
+            };
+        //act
+        game.startGame(config);
+        currentLevelBefore = game.getCurrentLevel();
+        game.resetLevel();
+        currentLevelAfter = game.getCurrentLevel();
+        game.getPieces();
+        //assert
+        expect(currentLevelBefore).toBe(7);
+        expect(currentLevelAfter).toBe(1);
+    });
+
+    it('should cannot click one piece twice a row', function () {
+        //arrange
+        var pieces,
+            index,
+            config = {
+                numberOfPieces: 6,
+            };
+        game.startGame(config);
+        pieces = game.getPieces();
+        //act
+        for (var i = 0; i < pieces.length; i++) {
+            if (pieces[i].toGuess === true) {
+                return index = i;
+            }
+        }
+        //assert
+        expect(game.checkClickedPiece(index)).toBe(false);
+    });
 
     function findPiecesToGuess(pieces) {
         return pieces.filter(function (piece) {

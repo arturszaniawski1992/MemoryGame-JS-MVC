@@ -89,6 +89,7 @@
     height: 8%;
     background-color: deepskyblue;
     text-align: center;
+
 }
 
 .button {
@@ -96,7 +97,7 @@
     border-radius: 4px;
     background-color: darkgoldenrod;
     border: none;
-    color: #FFFFFF;
+    color: white;
     text-align: center;
     padding: 20px;
     cursor: pointer;

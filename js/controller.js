@@ -8,7 +8,7 @@ var controller = (function () {
             game.startGame({
                 numberOfPieces: initialNumberOfPieces
             });
-            view.renderPieces(game.getPieces());
+            view.renderPieces(game.getPieces(), clickOnPiece);
             view.getNumberOfPieces(game.getCurrentNumberOfPieces());
             view.getNumberOfPiecesToGuess(game.getNumberOfPiecesToGuess(game.getCurrentNumberOfPieces()));
             view.highlightPieces(game.getCurrentPieces());
@@ -27,15 +27,13 @@ var controller = (function () {
                 }, 1000);
             }
             if (!click) {
-                if (game.checkIfGameCanBeContinued()) {
-                    view.displayMessage("GAME OVER! TRY AGAIN!");
-                    view.lockPieces();
-                    setTimeout(function () {
-                        view.getNumberOfPieces(4);
-                        view.getCurrentLevel(1);
-                        startAgain();
-                    }, 2000)
-                }
+                view.displayMessage("GAME OVER! TRY AGAIN!");
+                view.lockPieces();
+                setTimeout(function () {
+                    view.getNumberOfPieces(4);
+                    view.getCurrentLevel(1);
+                    startAgain();
+                }, 2000)
             }
         },
 
